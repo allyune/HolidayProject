@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Repositories
 {
-    internal class PropertiesRepository : IPropertiesRepository
+    public class PropertiesRepository : IPropertiesRepository
     {
         private readonly List<PropertyListing> _propertiesListing = PropertiesData.Properties;
         public List<PropertyListing> GetAll()

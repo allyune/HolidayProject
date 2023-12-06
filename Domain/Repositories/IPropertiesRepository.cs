@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Repositories
 {
-    internal interface IPropertiesRepository
+    public interface IPropertiesRepository
     {
         public List<PropertyListing> GetAll();
         public List<PropertyListing> ListAvailable(DateTime dateFrom, DateTime dateTo);
