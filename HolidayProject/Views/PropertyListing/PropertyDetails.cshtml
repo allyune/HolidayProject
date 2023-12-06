@@ -1,0 +1,27 @@
+﻿@model Domain.Entities.PropertyDetails
+@{
+}
+
+<h1>@Model.Id: @Model.Name</h1>
+<p>@Model.Location</p>
+<p>Number of bedrooms: @Model.NumberOfBedrooms</p>
+<p>Price per night: @Model.CostPerNight</p>
+<p>@Model.Description</p>
+
+<p>Amenities: @string.Join(", ", Model.Amenities)</p>
+<p>Booked Dates:</p>
+@if(Model.BookedDates.Any())
+{
+    <ul>
+        @foreach(var bookedDate in Model.BookedDates)
+        {
+            <li>bookedDate</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No booked days found for @Model.Name </p>
+}
+
+<a asp-controller="PropertyListing" asp-action="ListAll"> <- Back to the listing</a>

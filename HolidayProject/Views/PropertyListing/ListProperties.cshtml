@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.Entities.PropertyListing>
+﻿@model IEnumerable<Domain.Entities.PropertyDetails>
 @{
 }
 
@@ -12,6 +12,8 @@
         <p>Location: @property.Location</p>
         <p>Number of bedrooms: @property.NumberOfBedrooms</p>
         <p>PricePerNight: @property.CostPerNight</p>
+        <a asp-controller="PropertyListing" asp-action="ViewPropertyDetails" asp-route-id=@property.Id>See details -></a>
+
     }   
 }
 else

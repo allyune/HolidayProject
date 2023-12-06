@@ -9,7 +9,8 @@ namespace Domain.Repositories
 {
     public interface IPropertiesRepository
     {
-        public List<PropertyListing> GetAll();
-        public List<PropertyListing> ListAvailable(DateTime dateFrom, DateTime dateTo);
+        public List<PropertyDetails> GetAll();
+        public List<PropertyDetails> ListAvailable(DateTime dateFrom, DateTime dateTo);
+        public PropertyDetails GetById(int id);
     }
 }

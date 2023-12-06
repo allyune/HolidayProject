@@ -21,5 +21,11 @@ namespace HolidayProject.Controllers
         {
             return View("ListProperties", _propertyRepository.GetAll());
         }
+
+        public IActionResult ViewPropertyDetails(int id)
+        {
+            var property = _propertyRepository.GetById(id);
+            return View("PropertyDetails", property);
+        }
     }
 }
