@@ -22,6 +22,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=PropertyListingController}/{action=ListProperties}");
+    pattern: "{controller=PropertyListing}/{action=ListAll}");
 
 app.Run();

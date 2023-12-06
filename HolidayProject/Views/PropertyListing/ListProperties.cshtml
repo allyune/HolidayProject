@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Domain.Entities.PropertyListing>
+@{
+}
+
+<h1>All Holiday Properties</h1>
+@if(Model.Any())
+{
+    @foreach (var property in @Model)
+    {
+        <h4>ID: @property.Id, @property.Name</h4>
+        <p>@property.Blurb</p>
+        <p>Location: @property.Location</p>
+        <p>Number of bedrooms: @property.NumberOfBedrooms</p>
+        <p>PricePerNight: @property.CostPerNight</p>
+    }   
+}
+else
+{
+<p>No properties are available at the moment.</p>
+}
+

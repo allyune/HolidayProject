@@ -12,9 +12,14 @@ namespace HolidayProject.Controllers
             _propertyRepository = propertyRepository;
         }
 
-        public IActionResult ListProperties()
+        public IActionResult ListAll()
         {
-            return View(_propertyRepository.GetAll());
+            return View("ListProperties", _propertyRepository.GetAll());
+        }
+
+        public IActionResult ListAvailable()
+        {
+            return View("ListProperties", _propertyRepository.GetAll());
         }
     }
 }
