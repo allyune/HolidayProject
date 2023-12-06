@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Repositories
 {
-    public static class RentalsData
+    public static class PropertiesData
     {
+        public static List<PropertyListing> Properties => properties;
         private static List<PropertyListing> properties = new List<PropertyListing>
         {
             new PropertyListing()
