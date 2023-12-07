@@ -10,7 +10,7 @@ namespace Domain.Repositories
 {
     public class PropertiesRepository : IPropertiesRepository
     {
-        private readonly List<PropertyDetails> _properties = PropertiesData.Properties;
+        private List<PropertyDetails> _properties = PropertiesData.Properties;
         public List<PropertyDetails> GetAll()
         {
             return _properties;
@@ -30,6 +30,11 @@ namespace Domain.Repositories
             if (property == null)
                 throw new ArgumentNullException("id");
             return property;
+        }
+
+        public void addProperty(PropertyDetails propertyDetails)
+        {
+            _properties.Add(propertyDetails);
         }
     }
 }

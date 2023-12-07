@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,11 @@ namespace Domain.Entities
 {
     public class PropertyDetails : PropertyListing
     {
+        [Required]
+        [MaxLength(300)]
         public string Description { get; set; }
+        [Required]
         public List<string> Amenities { get; set; }
-        public List<DateTime> BookedDates { get; set; }
+        public List<DateTime>? BookedDates { get; set; }
     }
 }

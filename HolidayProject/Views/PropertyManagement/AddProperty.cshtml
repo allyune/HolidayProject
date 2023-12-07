@@ -1,0 +1,62 @@
+﻿@model Domain.Entities.PropertyDetails
+@{
+}
+
+<h1>Add a property</h1>
+@Html.BeginForm("AddProperty", "PropertyManagement", FormMethod.Post)
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Id)
+        @Html.TextBoxFor(model => model.Id, new { @class = "form-control", type = "number" })
+        @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Location)
+    @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description)
+        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = 4 })
+        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Amenities)
+        @Html.TextBoxFor(model => model.Amenities, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Amenities, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NumberOfBedrooms)
+        @Html.TextBoxFor(model => model.NumberOfBedrooms, new { @class = "form-control", type = "number" })
+        @Html.ValidationMessageFor(model => model.NumberOfBedrooms, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CostPerNight)
+        @Html.TextBoxFor(model => model.CostPerNight, new { @class = "form-control", type = "number", step = "any" })
+        @Html.ValidationMessageFor(model => model.CostPerNight, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Property</button>
+
+@if(ViewBag.Status is null)
+{
+    <p></p>
+}
+else
+{
+    <p>Added successfully</p>
+    <a asp-controller="PropertyListing" asp-action="ListAll">Return to the listing</a>
+}

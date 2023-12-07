@@ -12,5 +12,6 @@ namespace Domain.Repositories
         public List<PropertyDetails> GetAll();
         public List<PropertyDetails> ListAvailable(DateTime dateFrom, DateTime dateTo);
         public PropertyDetails GetById(int id);
+        public void addProperty(PropertyDetails propertyDetails);
     }
 }

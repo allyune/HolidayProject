@@ -2,7 +2,7 @@
 console.log("JS initialized")
 $(function () {
     $('#datepicker').daterangepicker({
-        opens: 'left'
+        opens: 'bottom'
     }, function (start, end, label) {
 
         $.ajax({

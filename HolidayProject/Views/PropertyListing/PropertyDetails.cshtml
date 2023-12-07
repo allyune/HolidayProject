@@ -15,7 +15,7 @@
             </ul>
             <hr class="my-4">
             <p class="lead">Booked Dates:</p>
-            @if (Model.BookedDates.Any())
+            @if (Model.BookedDates is not null && Model.BookedDates.Any())
             {
                 <ul class="list-group">
                     @foreach (var bookedDate in Model.BookedDates)
