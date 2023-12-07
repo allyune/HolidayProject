@@ -1,0 +1,14 @@
+﻿@{
+}
+
+<div>
+    <form asp-controller="PropertyListing" asp-action="ListAvailable" method="get">
+        <label for="from">From:</label>
+        <input type="date" name="from" />
+
+        <label for="to">To:</label>
+        <input type="date" name="to" />
+
+        <button type="submit">Search</button>
+    </form>
+</div>

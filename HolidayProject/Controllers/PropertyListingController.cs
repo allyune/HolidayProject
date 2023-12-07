@@ -17,9 +17,10 @@ namespace HolidayProject.Controllers
             return View("ListProperties", _propertyRepository.GetAll());
         }
 
-        public IActionResult ListAvailable()
+        public IActionResult ListAvailable(DateTime from, DateTime to)
         {
-            return View("ListProperties", _propertyRepository.GetAll());
+            var availableProperties = _propertyRepository.ListAvailable(from, to);
+            return View("ListProperties", availableProperties);
         }
 
         public IActionResult ViewPropertyDetails(int id)

@@ -15,7 +15,7 @@
     <ul>
         @foreach(var bookedDate in Model.BookedDates)
         {
-            <li>bookedDate</li>
+            <li>@bookedDate.Date.ToShortDateString()</li>
         }
     </ul>
 }

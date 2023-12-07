@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,20 +10,23 @@ namespace Domain.Repositories
 {
     public class PropertiesRepository : IPropertiesRepository
     {
-        private readonly List<PropertyDetails> _propertiesListing = PropertiesData.Properties;
+        private readonly List<PropertyDetails> _properties = PropertiesData.Properties;
         public List<PropertyDetails> GetAll()
         {
-            return _propertiesListing;
+            return _properties;
         }
 
         public List<PropertyDetails> ListAvailable(DateTime dateFrom, DateTime dateTo)
         {
-            throw new NotImplementedException();
+            var properties = _properties
+                .Where(p => PropertiesUtils.isAvailableForPeriod(dateFrom, dateTo, p.BookedDates))
+                .ToList();
+            return properties;
         }
 
         public PropertyDetails GetById(int id)
         {
-            var property = _propertiesListing.FirstOrDefault(p => p.Id == id);
+            var property = _properties.FirstOrDefault(p => p.Id == id);
             if (property == null)
                 throw new ArgumentNullException("id");
             return property;
