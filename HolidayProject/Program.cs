@@ -11,7 +11,8 @@ builder.Services
     .AddSingleton<IPropertiesRepository, PropertiesRepository>()
     .AddAutoMapper(typeof(AutoMapperProfile))
     .AddTransient<IPropertyListingService, PropertyListingService>()
-    .AddTransient<IPropertyManagementService, PropertyManagementService>();
+    .AddTransient<IPropertyManagementService, PropertyManagementService>()
+    .AddTransient<IBookingService, BookingService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -36,5 +36,15 @@ namespace Domain.Repositories
         {
             _properties.Add(propertyDetails);
         }
+
+        public Property AddBookingDates (int propertyId, List<DateTime> dates)
+        {
+            var property = _properties.FirstOrDefault(p => p.Id == propertyId);
+            if (property == null)
+                throw new NullReferenceException("Property does not exist");
+            property?.BookedDates.AddRange(dates);
+            return property;
+
+        }
     }
 }

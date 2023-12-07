@@ -14,6 +14,30 @@
                 <li class="list-group-item">Amenities: @string.Join(", ", Model.Amenities)</li>
             </ul>
             <hr class="my-4">
+
+            <div class="container mt-5">
+                <h3>Book this Property</h3>
+
+                @using (Html.BeginForm("AddBooking", "Booking", FormMethod.Post, new { @class = "mt-3" }))
+                {
+                    @Html.Hidden("PropertyId", Model.Id)
+
+                    <div class="form-group">
+                        <label for="From">From:</label>
+                        <input type="date" id="From" name="From" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="To">To:</label>
+                        <input type="date" id="To" name="To" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Book Property</button>
+                }
+            </div>
+
+
+
             <p class="lead">Booked Dates:</p>
             @if (Model.BookedDates is not null && Model.BookedDates.Any())
             {

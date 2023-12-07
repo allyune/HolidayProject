@@ -13,5 +13,6 @@ namespace Domain.Repositories
         public List<Property> ListAvailable(DateTime dateFrom, DateTime dateTo);
         public Property GetById(int id);
         public void addProperty(Property propertyDetails);
+        public Property AddBookingDates(int propertyId, List<DateTime> dates);
     }
 }
