@@ -1,27 +1,35 @@
 ﻿@model Domain.Entities.PropertyDetails
-@{
-}
 
-<h1>@Model.Id: @Model.Name</h1>
-<p>@Model.Location</p>
-<p>Number of bedrooms: @Model.NumberOfBedrooms</p>
-<p>Price per night: @Model.CostPerNight</p>
-<p>@Model.Description</p>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="display-4">@Model.Name</h1>
+            <p class="lead">@Model.Location</p>
+            <hr class="my-4">
+            <p class="lead">Details:</p>
+            <ul class="list-group">
+                <li class="list-group-item">Number of bedrooms: @Model.NumberOfBedrooms</li>
+                <li class="list-group-item">Price per night: $@Model.CostPerNight</li>
+                <li class="list-group-item">Description: @Model.Description</li>
+                <li class="list-group-item">Amenities: @string.Join(", ", Model.Amenities)</li>
+            </ul>
+            <hr class="my-4">
+            <p class="lead">Booked Dates:</p>
+            @if (Model.BookedDates.Any())
+            {
+                <ul class="list-group">
+                    @foreach (var bookedDate in Model.BookedDates)
+                    {
+                        <li class="list-group-item">@bookedDate.Date.ToShortDateString()</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No booked days found for @Model.Name</p>
+            }
 
-<p>Amenities: @string.Join(", ", Model.Amenities)</p>
-<p>Booked Dates:</p>
-@if(Model.BookedDates.Any())
-{
-    <ul>
-        @foreach(var bookedDate in Model.BookedDates)
-        {
-            <li>@bookedDate.Date.ToShortDateString()</li>
-        }
-    </ul>
-}
-else
-{
-    <p>No booked days found for @Model.Name </p>
-}
-
-<a asp-controller="PropertyListing" asp-action="ListAll"> <- Back to the listing</a>
+            <a class="btn btn-secondary mt-3" asp-controller="PropertyListing" asp-action="ListAll">Back to the listing</a>
+        </div>
+    </div>
+</div>

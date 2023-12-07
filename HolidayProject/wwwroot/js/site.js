@@ -1,4 +1,24 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+console.log("JS initialized")
+$(function () {
+    $('#datepicker').daterangepicker({
+        opens: 'left'
+    }, function (start, end, label) {
 
-// Write your JavaScript code.
+        $.ajax({
+            url: '/PropertyListing/ListAvailable',
+            type: 'GET',
+            data: {
+                from: start.format('YYYY-MM-DD'),
+                to: end.format('YYYY-MM-DD')
+            },
+            success: function (data) {
+               console.log('Successfully filtered properties.')
+            },
+            error: function (error) {
+                console.error('Error calling the action:', error);
+            }
+        });
+    });
+});
+

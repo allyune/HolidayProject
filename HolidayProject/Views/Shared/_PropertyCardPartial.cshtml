@@ -1,0 +1,17 @@
+﻿@model Domain.Entities.PropertyDetails
+
+<div class="card mb-4">
+    <img src="https://placehold.it/300x200" class="card-img-top" alt="Property Image">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">@Model.Blurb</p>
+        <ul class="list-unstyled">
+            <li><strong>Location:</strong> @Model.Location</li>
+            <li><strong>Bedrooms:</strong> @Model.NumberOfBedrooms</li>
+            <li><strong>Price Per Night:</strong> $@Model.CostPerNight</li>
+        </ul>
+    </div>
+    <div class="card-footer">
+        <a asp-controller="PropertyListing" asp-action="ViewPropertyDetails" asp-route-id=@Model.Id class="btn btn-info">See Details</a>
+    </div>
+</div>
