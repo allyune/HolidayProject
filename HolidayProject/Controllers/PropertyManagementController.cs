@@ -1,18 +1,18 @@
 ﻿using Domain.Entities;
 using Domain.Repositories;
+using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HolidayProject.Controllers
 {
     public class PropertyManagementController : Controller
     {
-        private readonly IPropertiesRepository _propertyRepository;
+        private readonly IPropertyManagementService _managementService;
 
-        public PropertyManagementController(IPropertiesRepository propertyRepository)
+        public PropertyManagementController(IPropertyManagementService managementService)
         {
-            _propertyRepository = propertyRepository;
+            _managementService = managementService;
         }
-
         [HttpGet]
         public IActionResult AddProperty()
         {
@@ -26,7 +26,7 @@ namespace HolidayProject.Controllers
                 return BadRequest("Property is not valid");
             if (string.IsNullOrEmpty(propertyDetails.Blurb))
                 propertyDetails.Blurb = propertyDetails.Description;
-            _propertyRepository.addProperty(propertyDetails);
+            _managementService.AddProperty(propertyDetails);
             ViewBag.Status = true;
             return View("AddProperty", propertyDetails);
         }

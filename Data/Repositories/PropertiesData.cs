@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Data.Models;
 using System;
 using System.Collections.Generic;
 
@@ -6,9 +6,9 @@ namespace Domain.Repositories
 {
     public static class PropertiesData
     {
-        private static List<PropertyDetails> properties = new List<PropertyDetails>
+        private static List<Property> properties = new List<Property>
         {
-            new PropertyDetails()
+            new Property()
             {
                 Id = 1,
                 Name = "Rose Cottage",
@@ -20,7 +20,7 @@ namespace Domain.Repositories
                 Amenities = new List<string> { "Wi-Fi", "Kitchen", "Parking" },
                 BookedDates = new List<DateTime> { new DateTime(2023, 7, 15), new DateTime(2023, 8, 5) }
             },
-            new PropertyDetails()
+            new Property()
             {
                 Id = 2,
                 Name = "Saffron House",
@@ -32,7 +32,7 @@ namespace Domain.Repositories
                 Amenities = new List<string> { "Garden", "Library", "Indoor Pool" },
                 BookedDates = new List<DateTime> { new DateTime(2023, 6, 20), new DateTime(2023, 9, 10) }
             },
-            new PropertyDetails()
+            new     ()
             {
                 Id = 3,
                 Name = "Alpine Retreat",
@@ -44,7 +44,7 @@ namespace Domain.Repositories
                 Amenities = new List<string> { "Sauna", "Ski Storage", "Terrace" },
                 BookedDates = new List<DateTime> { new DateTime(2023, 8, 1), new DateTime(2023, 8, 15) }
             },
-            new PropertyDetails()
+            new Property()
             {
                 Id = 4,
                 Name = "Tropical Paradise House",
@@ -56,7 +56,7 @@ namespace Domain.Repositories
                 Amenities = new List<string> { "Private Beach", "Infinity Pool", "Snorkeling Gear" },
                 BookedDates = new List<DateTime> { new DateTime(2023, 7, 5), new DateTime(2023, 7, 20) }
             },
-            new PropertyDetails()
+            new Property()
             {
                 Id = 5,
                 Name = "Modern City Loft",
@@ -68,7 +68,7 @@ namespace Domain.Repositories
                 Amenities = new List<string> { "Fitness Center", "Roof Terrace", "Concierge" },
                 BookedDates = new List<DateTime> { new DateTime(2023, 6, 1), new DateTime(2023, 6, 10) }
             },
-            new PropertyDetails()
+            new Property()
             {
                 Id = 6,
                 Name = "Rustic Mountain Cabin",
@@ -80,7 +80,7 @@ namespace Domain.Repositories
                 Amenities = new List<string> { "Wood-Burning Fireplace", "Hiking Trails", "Deck" },
                 BookedDates = new List<DateTime> { new DateTime(2023, 9, 15), new DateTime(2023, 10, 1) }
             },
-            new PropertyDetails()
+            new     Property()
             {
                 Id = 7,
                 Name = "Historic Castle",
@@ -92,7 +92,7 @@ namespace Domain.Repositories
                 Amenities = new List<string> { "Great Hall", "Moat", "Tapestries" },
                 BookedDates = new List<DateTime> { new DateTime(2023, 8, 20), new DateTime(2023, 9, 5) }
             },
-            new PropertyDetails()
+            new Property()
             {
                 Id = 8,
                 Name = "Zen Garden Retreat",
@@ -104,7 +104,7 @@ namespace Domain.Repositories
                 Amenities = new List<string> { "Tea Room", "Koi Pond", "Meditation Space" },
                 BookedDates = new List<DateTime> { new DateTime(2023, 7, 10), new DateTime(2023, 7, 25) }
             },
-            new PropertyDetails()
+            new Property()
             {
                 Id = 9,
                 Name = "Desert Oasis Villa",
@@ -116,7 +116,7 @@ namespace Domain.Repositories
                 Amenities = new List<string> { "Swimming Pool", "Outdoor Kitchen", "Star Gazing" },
                 BookedDates = new List<DateTime> { new DateTime(2023, 5, 15), new DateTime(2023, 6, 5) }
             },
-            new PropertyDetails()
+            new Property        ()
             {
                 Id = 10,
                 Name = "Snowy Mountain Chalet",
@@ -130,6 +130,6 @@ namespace Domain.Repositories
             }
         };
 
-        public static List<PropertyDetails> Properties => properties;
+        public static List<Property> Properties => properties;
     }
 }

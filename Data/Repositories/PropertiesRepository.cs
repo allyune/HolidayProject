@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Data.Models;
 using Domain.Utils;
 using System;
 using System.Collections.Generic;
@@ -10,13 +10,13 @@ namespace Domain.Repositories
 {
     public class PropertiesRepository : IPropertiesRepository
     {
-        private List<PropertyDetails> _properties = PropertiesData.Properties;
-        public List<PropertyDetails> GetAll()
+        private List<Property> _properties = PropertiesData.Properties;
+        public List<Property> GetAll()
         {
             return _properties;
         }
 
-        public List<PropertyDetails> ListAvailable(DateTime dateFrom, DateTime dateTo)
+        public List<Property> ListAvailable(DateTime dateFrom, DateTime dateTo)
         {
             var properties = _properties
                 .Where(p => PropertiesUtils.isAvailableForPeriod(dateFrom, dateTo, p.BookedDates))
@@ -24,7 +24,7 @@ namespace Domain.Repositories
             return properties;
         }
 
-        public PropertyDetails GetById(int id)
+        public Property GetById(int id)
         {
             var property = _properties.FirstOrDefault(p => p.Id == id);
             if (property == null)
@@ -32,7 +32,7 @@ namespace Domain.Repositories
             return property;
         }
 
-        public void addProperty(PropertyDetails propertyDetails)
+        public void addProperty(Property propertyDetails)
         {
             _properties.Add(propertyDetails);
         }

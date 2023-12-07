@@ -1,31 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Domain.Repositories;
+using Domain.Services;
 
 namespace HolidayProject.Controllers
 {
     public class PropertyListingController : Controller
     {
-        private readonly IPropertiesRepository _propertyRepository;
+        private readonly IPropertyListingService _listingService;
 
-        public PropertyListingController(IPropertiesRepository propertyRepository)
+        public PropertyListingController(IPropertyListingService listingService)
         {
-            _propertyRepository = propertyRepository;
+            _listingService = listingService;
         }
 
         public IActionResult ListAll()
         {
-            return View("ListProperties", _propertyRepository.GetAll());
+            return View("ListProperties", _listingService.GetAll());
         }
 
         public IActionResult ListAvailable(DateTime from, DateTime to)
         {
-            var availableProperties = _propertyRepository.ListAvailable(from, to);
+            var availableProperties = _listingService.GetAvailable(from, to);
             return View("ListProperties", availableProperties);
         }
 
         public IActionResult ViewPropertyDetails(int id)
         {
-            var property = _propertyRepository.GetById(id);
+            var property = _listingService.GetPropertyById(id);
             return View("PropertyDetails", property);
         }
     }

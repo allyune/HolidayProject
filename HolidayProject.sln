@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidayProject", "HolidayPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{D36EF0D9-DC97-4083-9513-33AC8FB0F5DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{99AD7CF8-6ACB-43BF-9A6F-7B50225D4760}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D36EF0D9-DC97-4083-9513-33AC8FB0F5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D36EF0D9-DC97-4083-9513-33AC8FB0F5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D36EF0D9-DC97-4083-9513-33AC8FB0F5DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99AD7CF8-6ACB-43BF-9A6F-7B50225D4760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99AD7CF8-6ACB-43BF-9A6F-7B50225D4760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99AD7CF8-6ACB-43BF-9A6F-7B50225D4760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99AD7CF8-6ACB-43BF-9A6F-7B50225D4760}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
