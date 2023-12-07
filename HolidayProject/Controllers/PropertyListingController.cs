@@ -26,6 +26,7 @@ namespace HolidayProject.Controllers
 
         public IActionResult ViewPropertyDetails(int id)
         {
+            ViewBag.BookingMessage = null;
             var property = _listingService.GetPropertyById(id);
             return View("PropertyDetails", property);
         }

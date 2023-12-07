@@ -36,6 +36,10 @@
                 }
             </div>
 
+            @if (ViewBag.BookingMessage is not null)
+            {
+                <p>@ViewBag.BookingMessage</p>
+            }
 
 
             <p class="lead">Booked Dates:</p>

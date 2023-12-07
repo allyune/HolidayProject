@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
 
 namespace HolidayProject.Controllers
 {
@@ -15,8 +16,29 @@ namespace HolidayProject.Controllers
         [HttpPost]
         public IActionResult AddBooking(PropertyBooking booking)
         {
-            var property = _bookingService.AddBookingDates(booking);
-            return View("~/Views/PropertyListing/PropertyDetails.cshtml", property);
+            try
+            {
+                var property = _bookingService.AddBookingDates(booking);
+                return View("~/Views/PropertyListing/PropertyDetails.cshtml", property);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest("Wrong dates");
+            }
+            catch (NullReferenceException)
+            {
+                return BadRequest("Property does not exist");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return BadRequest("Property is not available for this period");
+            }
+            catch (Exception ex)
+            {
+                // SHould have proper logging
+                Console.WriteLine(ex.Message);
+                return BadRequest("Booking error, try again");
+            }
         }
     }
 }

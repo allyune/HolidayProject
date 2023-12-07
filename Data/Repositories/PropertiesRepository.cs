@@ -42,6 +42,8 @@ namespace Domain.Repositories
             var property = _properties.FirstOrDefault(p => p.Id == propertyId);
             if (property == null)
                 throw new NullReferenceException("Property does not exist");
+            if (!PropertiesUtils.isAvailableForPeriod(dates[0], dates[dates.Count - 1], property?.BookedDates))
+                throw new IndexOutOfRangeException("Property is not available for the period");
             property?.BookedDates.AddRange(dates);
             return property;
 

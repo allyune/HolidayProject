@@ -2,6 +2,7 @@
 using Data.Models;
 using Domain.Entities;
 using Domain.Repositories;
+using Domain.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,9 @@ namespace Domain.Services
         public PropertyDetails AddBookingDates(PropertyBooking booking)
         {
             if (booking.From.Date >= booking.To.Date)
-                throw new ArgumentException("Wrong dates");
+                throw new AccessViolationException("Wrong dates");
             List<DateTime> dates = new List<DateTime>();
-            for (DateTime date = booking.From.Date; date <= booking.To.Date; date = date.AddDays(1))
+            for (DateTime date = booking.From.Date; date < booking.To.Date; date = date.AddDays(1))
             {
                 dates.Add(date);
             }
