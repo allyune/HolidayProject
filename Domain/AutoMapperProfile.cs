@@ -13,8 +13,7 @@ namespace Domain
     {
         public AutoMapperProfile()
         {
-            CreateMap<Property, PropertyDetails>();
-            CreateMap<PropertyDetails, Property>();
+            CreateMap<Property, PropertyDetails>().ReverseMap();
         }
     }
 }

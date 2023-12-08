@@ -11,7 +11,7 @@ namespace Domain.Utils
         public static bool isAvailableForPeriod(
            DateTime fromDate, DateTime toDate, List<DateTime> bookedDates)
         {
-            return !bookedDates.Any(date => date >= fromDate && date <= toDate);
+            return !bookedDates.Any(date => date >= fromDate && date < toDate);
         }
     }
 }
